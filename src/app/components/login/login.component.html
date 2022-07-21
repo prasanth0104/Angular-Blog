@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 my-5">
+      <h3>Sign In</h3>
+      <form (ngSubmit)="loginForm.valid &&login()"
+        #loginForm="ngForm"
+        >
+        <div class="mb-3">
+          <label class="form-label">UserName</label>
+          <input
+            type="text"
+            class="form-control"
+            autocomplete="off"
+            name="username"
+            [(ngModel)]="auth.username"
+            #username="ngModel"
+            required
+            min="5"
+          />
+          <div class="form-text text-danger" *ngIf="username.invalid">
+            This is a required field.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            autocomplete="off"
+            name="password"
+            [(ngModel)]="auth.password"
+            #password="ngModel"
+            required
+            min="5"
+          />
+          <div class="form-text text-danger" *ngIf="password.invalid">
+            This is a required field.</div>
+        </div>
+        <p class="my-2">
+          Not having an account? Click <a href="/register">here</a>
+        </p>
+        <button type="submit" class="w-100 btn btn-primary">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
